@@ -1,15 +1,40 @@
-﻿header {
-    background-color: red;
-    height: 200px;
+﻿* {
+    margin: 0px;
+    padding: 0px;
 }
 
-nav {
-    width: 20vw;
-    background-color: blue;
-    height: 200px;
+.wrapper {
+    margin: 0 auto 0 auto;
+    width: 85%;
+
+}
+
+.content {
+    background-color: #000;
+    color: #fff;
+    float: right;
+    width: 50%;
+    display: flex;
+}
+
+.content, aside {
+    min-height: 500px;
+
+}
+
+header, footer {
+    background-color: #913c3a;
+    height: 100px;
+    clear: both;
+}
+
+.aside {
+    width: 20%;
+    background-color: yellow;
+    display: flex;
 }
 
 footer {
-    background-color: red;
-    height: 200px;
+    text-align: center;
+    color: #fff;
 }

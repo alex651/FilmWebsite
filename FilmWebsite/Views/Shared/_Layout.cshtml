@@ -1,9 +1,34 @@
-﻿<!DOCTYPE html>
+﻿@{
+}
+
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="utf-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="@Href("~/css/site.css")" />
 </head>
 <body>
-    @RenderBody()
+
+    <div class="wrapper">
+        <header>
+            <h1>Header</h1>
+        </header>
+
+        <aside>
+            <h2>SideBar</h2>
+        </aside>
+
+        <div class="content">
+            @RenderBody()
+        </div>
+
+        <footer>
+            &copy; @DateTime.Now.Year
+        </footer>
+
+    </div>
+
 </body>
 </html>
