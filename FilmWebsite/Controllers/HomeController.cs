@@ -12,6 +12,9 @@ namespace FilmWebsite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        // stel in waar de database gevonden kan worden
+        string connectionString = "Server=172.16.160.21;Port=3306;Database=110734;Uid=110734;Pwd=inf2122sql;";
+
 
         public HomeController(ILogger<HomeController> logger)
         {
