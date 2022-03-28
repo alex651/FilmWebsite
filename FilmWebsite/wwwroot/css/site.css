@@ -1,37 +1,35 @@
 ﻿* {
     margin: 0px;
     padding: 0px;
+    background-color: #545454;
 }
 
 .wrapper {
     margin: 0 auto 0 auto;
     width: 85%;
-
+    display: flex;
+    background-color: #545454;
+    font color: ACE2B1;
 }
 
 .content {
-    background-color: #000;
-    color: #fff;
-    float: right;
-    width: 50%;
-    display: flex;
+    background-color: #545454;
+    color: white;
 }
 
 .content, aside {
-    min-height: 500px;
+   
 
 }
 
 header, footer {
-    background-color: #913c3a;
+    background-color: #545454;
     height: 100px;
-    clear: both;
+ 
 }
 
 .aside {
-    width: 20%;
-    background-color: yellow;
-    display: flex;
+    background-color: yellow;    
 }
 
 footer {

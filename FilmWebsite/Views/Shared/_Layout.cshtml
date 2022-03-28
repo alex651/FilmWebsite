@@ -11,24 +11,28 @@
 </head>
 <body>
 
-    <div class="wrapper">
-        <header>
-            <h1>Header</h1>
-        </header>
+    <header>
+        <h1>Header</h1>
+    </header>
 
-        <aside>
-            <h2>SideBar</h2>
-        </aside>
+    <div class="wrapper">
+        <nav>
+          <a href="">Romantiek</a>
+          <a href="">Romantiek</a>
+          <a href="">Romantiek</a>
+          <a href="">Romantiek</a>
+          <a href="">Romantiek</a>
+          <a href="">Romantiek</a>
+        </nav>
 
         <div class="content">
             @RenderBody()
         </div>
-
-        <footer>
-            &copy; @DateTime.Now.Year
-        </footer>
-
     </div>
+
+    <footer>
+        &copy; @DateTime.Now.Year
+    </footer>
 
 </body>
 </html>
