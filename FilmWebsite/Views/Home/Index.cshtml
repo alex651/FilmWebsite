@@ -1,5 +1,13 @@
-﻿@{
+﻿@model List<string>
+
+@{
     Layout = "_Layout";
 }
 
-<p>Hier komt alles</p>
+<div class="text-center">
+    <h1>Alle namen</h1>
+    @foreach(string naam in Model)
+    {
+        <p>@naam </p>
+    }
+</div>
