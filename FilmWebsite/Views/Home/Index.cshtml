@@ -1,8 +1,17 @@
-﻿@{
+﻿@model List<string>
+
+@{
     Layout = "_Layout";
 }
 
 <div class="movie-tile">
     <h3>titel</h3>
     <img />    
+</div>
+<div class="text-center">
+    <h1>Alle namen</h1>
+    @foreach(string naam in Model)
+    {
+        <p>@naam </p>
+    }
 </div>
