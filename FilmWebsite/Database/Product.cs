@@ -1,13 +1,17 @@
 ﻿namespace FilmWebsite.Database
 {
-    public class Product
+    public class Film
     {
+      
+
         public int Id { get; set; }
 
         public string Naam { get; set; }
 
-        public string Prijs { get; set; }
+        public string Cast { get; set; }
 
-        public string Beschikbaarheid { get; set; }
+        public string Beschrijving { get; set; }
+
+        public string poster { get; set; }
     }
 }

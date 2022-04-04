@@ -1,4 +1,5 @@
-﻿@model List<string>
+﻿@using FilmWebsite.Database
+@model List<Film>
 
 @{
     Layout = "_Layout";
@@ -10,8 +11,13 @@
 </div>
 <div class="text-center">
     <h1>Alle namen</h1>
-    @foreach(string naam in Model)
+    <div class="allMovies">
+    @foreach(Film film in Model)
     {
-        <p>@naam </p>
+        <div class="movie" style="background-image:url(@film.poster)" >
+            <h2>@film.Naam</h2>            
+            <p>@film.Cast</p>
+        </div>
     }
+    </div>
 </div>
