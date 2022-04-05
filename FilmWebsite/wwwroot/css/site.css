@@ -47,12 +47,12 @@ footer {
 
 .movie {
     background-size: cover;
-    padding: 210px 20px 20px 20px;
+    padding: 210px 20px 250px 20px;
     margin: 10px;
     width: 25%;
 }
 
-    .movie h2,
-    .movie p{
+.movie h2 {
         background-color:dimgray;
+        font-family: Arial;
     }

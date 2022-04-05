@@ -6,17 +6,15 @@
 }
 
 <div class="movie-tile">
-    <h3>titel</h3>
-    <img />    
+     
 </div>
 <div class="text-center">
-    <h1>Alle namen</h1>
+    <h1>Welkom</h1>
     <div class="allMovies">
     @foreach(Film film in Model)
     {
         <div class="movie" style="background-image:url(@film.poster)" >
             <h2>@film.Naam</h2>            
-            <p>@film.Cast</p>
         </div>
     }
     </div>
