@@ -124,6 +124,52 @@ namespace FilmWebsite.Controllers
             return View(films);
         }
 
+        [Route("comedy")]
+        public IActionResult Comedy()
+        {
+            var rows = DatabaseConnector.GetRows("select * from film where genre = 'Comedy'");
+
+            List<Film> films = new List<Film>();
+            foreach (var row in rows)
+            {
+                Film f = new Film
+                {
+                    // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
+                    Naam = row["naam"].ToString(),
+                    poster = row["poster"].ToString(),
+                    Id = Convert.ToInt32(row["id"].ToString()),
+                    Cast = row["Cast"].ToString()
+                };
+
+                films.Add(f);
+            }
+
+            return View(films);
+        }
+
+        [Route("Kinderfilms")]
+        public IActionResult Kinderfilms()
+        {
+            var rows = DatabaseConnector.GetRows("select * from film where genre = 'Kinderfilm'");
+
+            List<Film> films = new List<Film>();
+            foreach (var row in rows)
+            {
+                Film f = new Film
+                {
+                    // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
+                    Naam = row["naam"].ToString(),
+                    poster = row["poster"].ToString(),
+                    Id = Convert.ToInt32(row["id"].ToString()),
+                    Cast = row["Cast"].ToString()
+                };
+
+                films.Add(f);
+            }
+
+            return View(films);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
