@@ -15,7 +15,9 @@
     @foreach(Film film in Model)
     {
         <div class="movie" style="background-image:url(@film.poster)" >
-            <h2>@film.Naam</h2>            
+            <div class="filmtitel">
+                <h2>@film.Naam</h2>
+            </div>
         </div>
     }
     </div>
