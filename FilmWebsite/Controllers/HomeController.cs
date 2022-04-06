@@ -30,8 +30,8 @@ namespace FilmWebsite.Controllers
         public List<Film> GetProducts()
         {
 
-            //string connectionString = "Server=172.16.160.21;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
-            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
+            string connectionString = "Server=172.16.160.21;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
+            //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<Film> products = new List<Film>();
