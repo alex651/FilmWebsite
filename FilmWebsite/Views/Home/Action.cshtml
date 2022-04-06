@@ -1,0 +1,15 @@
+﻿@using FilmWebsite.Database
+@model List<Film>
+
+    <div>
+        <h1>Actiefilms</h1>
+        <div class="movies">
+        @foreach(Film film in Model)
+        {
+            <div class="moviee">
+                <h3>@film.Naam</h3>
+                <img src="@film.poster"/>
+            </div>
+        }
+        </div>
+    </div>
