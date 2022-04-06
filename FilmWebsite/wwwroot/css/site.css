@@ -52,17 +52,20 @@ footer {
     width: 25%;
 }
 
-.moviee {
-    background-size: cover;
-    padding: 210px 20px 250px 20px;
-    margin: 10px;
-    width: 25%;
-}
 
 .movie h2 {
         background-color:dimgray;
         font-family: Arial;
     }
+
+.text-center h1 {
+        font-family: Arial;
+}
+
+.text-center h3 {
+    font-family: Arial;
+    font-size: 18px;
+}
 
 .topnav {
     background-color: dimgray;

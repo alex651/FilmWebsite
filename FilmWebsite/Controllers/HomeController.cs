@@ -30,8 +30,8 @@ namespace FilmWebsite.Controllers
         public List<Film> GetProducts()
         {
 
-            string connectionString = "Server=172.16.160.21;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
-            //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
+           // string connectionString = "Server=172.16.160.21;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
+            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
 
             // maak een lege lijst waar we de namen in gaan opslaan
             List<Film> products = new List<Film>();
@@ -82,6 +82,29 @@ namespace FilmWebsite.Controllers
         public IActionResult Action()
         {
             var rows = DatabaseConnector.GetRows("select * from film where genre = 'actie'");
+
+            List<Film> films = new List<Film>();
+            foreach (var row in rows)
+            {
+                Film f = new Film
+                {
+                    // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
+                    Naam = row["naam"].ToString(),
+                    poster = row["poster"].ToString(),
+                    Id = Convert.ToInt32(row["id"].ToString()),
+                    Cast = row["Cast"].ToString()
+                };
+
+                films.Add(f);
+            }
+
+            return View(films);
+        }
+
+        [Route("romantiek")]
+        public IActionResult Romantiek()
+        {
+            var rows = DatabaseConnector.GetRows("select * from film where genre = 'Romantiek'");
 
             List<Film> films = new List<Film>();
             foreach (var row in rows)
