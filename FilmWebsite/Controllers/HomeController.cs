@@ -170,6 +170,7 @@ namespace FilmWebsite.Controllers
             return View(films);
         }
 
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
