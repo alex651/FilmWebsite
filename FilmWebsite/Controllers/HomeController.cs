@@ -170,6 +170,30 @@ namespace FilmWebsite.Controllers
             return View(films);
         }
 
+        [Route("Contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(Person person)
+        {
+            // hebben we alles goed ingevuld? Dan sturen we de gebruiker door naar de succes pagina
+            if (ModelState.IsValid){
+
+                return Redirect("/Succes");
+            }
+            // niet goed? Dan sturen we de gegevens door naar de view zodat we de fouten kunnen tonen
+           
+            return View(person);
+        }
+
+        [Route("Succes")]
+        public IActionResult Succes()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
