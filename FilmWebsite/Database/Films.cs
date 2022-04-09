@@ -13,5 +13,7 @@
         public string Beschrijving { get; set; }
 
         public string poster { get; set; }
+
+        public string duur { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace FilmWebsite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private string connectionString;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -30,7 +30,7 @@ namespace FilmWebsite.Controllers
         public List<Film> GetProducts()
         {
 
-           // string connectionString = "Server=172.16.160.21;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
+            // string connectionString = "Server=172.16.160.21;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
             string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
 
             // maak een lege lijst waar we de namen in gaan opslaan
@@ -77,6 +77,45 @@ namespace FilmWebsite.Controllers
         {
             return View();
         }
+
+        [Route("film/{id}")]
+
+        public IActionResult Film(string id)
+        {
+            var model = GetFilm(id);
+
+            return View(model);
+        }
+
+        private Film GetFilm(string id)
+        {
+            List<Film> films = new List<Film>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand($"select * from film where id = {id}",  conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Film p = new Film
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Naam = reader["Naam"].ToString(),
+                            Beschrijving = reader["Beschrijving"].ToString(),
+                            poster = reader["poster"].ToString(),
+                            duur = reader["duur"].ToString()
+                        };
+                        films.Add(p);
+                    }
+                }
+            }
+            return films[0];
+        }
+
 
         [Route("actie")]
         public IActionResult Action()
