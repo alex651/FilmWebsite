@@ -7,6 +7,7 @@
     padding: 0px;
     font-family: Arial;
     text-decoration: none;
+    color: #ACE2B1
 }
 
 .wrapper {
@@ -18,7 +19,7 @@
 
 .content {
     background-color: #545454;
-    color: white;
+    color: #ACE2B1;
 }
 
 .content, aside {
@@ -55,7 +56,7 @@ footer {
 
 
     .movie h2 {
-        background-color: rgba(192,192,192,0.3);
+        background-color: #545454;
         font-family: Arial;
         text-align: center;
         color: hotpink;
@@ -79,7 +80,7 @@ footer {
 
 .topnav a {
     float: left;
-    color: #f2f2f2;
+    color: #ACE2B1;
     text-align: center;
     padding: 30px 30px;
     text-decoration: none;
@@ -87,16 +88,16 @@ footer {
     font-family: Arial;  
 }
 
- .topnav a:hover {
+.topnav a:hover {
     background-color: grey;
-    color: white;
- }
+    color: #ACE2B1;
+}
 
 
- .topnav a.active {
+.topnav a.active {
     background-color: #545454;
-    color: white;
- }
+    color: #ACE2B1;
+}
 
  .search-container {
      float: right;
