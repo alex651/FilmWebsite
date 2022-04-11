@@ -6,7 +6,6 @@
     margin: 0px;
     padding: 0px;
     font-family: Arial;
-    color: white;
     text-decoration: none;
 }
 
@@ -136,4 +135,8 @@ footer {
 .contactform .field-validation-error {
     color: red;
     margin-left: 10px;
+}
+
+.fimtitel{
+    color: white;
 }

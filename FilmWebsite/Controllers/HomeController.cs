@@ -11,8 +11,8 @@ namespace FilmWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private string connectionString;
+        private readonly ILogger<HomeController> _logger;        
+        
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -22,55 +22,26 @@ namespace FilmWebsite.Controllers
         public IActionResult Index()
         {
             // alle namen ophalen
-            var products = GetProducts();
+            var rows = DatabaseConnector.GetRows("select * from film");
 
-            // stop de namen in de html
-            return View(products);
-        }
-        public List<Film> GetProducts()
-        {
-
-            // string connectionString = "Server=172.16.160.21;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
-            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=111410;Uid=111410;Pwd=inf2021sql;";
-
-            // maak een lege lijst waar we de namen in gaan opslaan
-            List<Film> products = new List<Film>();
-
-            // verbinding maken met de database
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            List<Film> films = new List<Film>();
+            foreach (var row in rows)
             {
-                // verbinding openen
-                conn.Open();
-
-                // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand("select * from film", conn);
-
-                // resultaat van de query lezen
-                using (var reader = cmd.ExecuteReader())
+                Film f = new Film
                 {
-                    // elke keer een regel (of eigenlijk: database rij) lezen
-                    while (reader.Read())
-                    {
-                        Film p = new Film
-                        {
-                            // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
-                            Naam = reader["Naam"].ToString(),
-                            poster = reader["poster"].ToString(),
-                            Id = Convert.ToInt32(reader["Id"].ToString()),
-                            Cast = reader["Cast"].ToString()
-                        };
+                    // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
+                    Naam = row["naam"].ToString(),
+                    poster = row["poster"].ToString(),
+                    Id = Convert.ToInt32(row["id"].ToString()),
+                    Cast = row["Cast"].ToString()
+                };
 
-                        // voeg de naam toe aan de lijst met namen
-                        products.Add(p);
-
-                    }
-                }
+                films.Add(f);
             }
 
-
-            // return de lijst met namen
-            return products;
-        }
+            // stop de namen in de html
+            return View(films);
+        }      
 
 
         public IActionResult Privacy()
@@ -80,41 +51,27 @@ namespace FilmWebsite.Controllers
 
         [Route("film/{id}")]
 
-        public IActionResult Film(string id)
+        public IActionResult Film(int id)
         {
-            var model = GetFilm(id);
+            var rows = DatabaseConnector.GetRows($"select * from film where id = {id}");
 
-            return View(model);
-        }
-
-        private Film GetFilm(string id)
-        {
             List<Film> films = new List<Film>();
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            foreach (var row in rows)
             {
-                conn.Open();
-
-                MySqlCommand cmd = new MySqlCommand($"select * from film where id = {id}",  conn);
-
-                using (var reader = cmd.ExecuteReader())
+                Film f = new Film
                 {
-                    while (reader.Read())
-                    {
-                        Film p = new Film
-                        {
-                            Id = Convert.ToInt32(reader["Id"]),
-                            Naam = reader["Naam"].ToString(),
-                            Beschrijving = reader["Beschrijving"].ToString(),
-                            poster = reader["poster"].ToString(),
-                            duur = reader["duur"].ToString()
-                        };
-                        films.Add(p);
-                    }
-                }
+                    // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
+                    Naam = row["naam"].ToString(),
+                    poster = row["poster"].ToString(),
+                    Id = Convert.ToInt32(row["id"].ToString()),
+                    Cast = row["Cast"].ToString()
+                };
+
+                films.Add(f);
             }
-            return films[0];
-        }
+
+            return View(films[0]);
+        }       
 
 
         [Route("actie")]
