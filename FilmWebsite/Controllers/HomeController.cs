@@ -173,10 +173,14 @@ namespace FilmWebsite.Controllers
         }
 
         [HttpPost]
+        [Route("Contact")]
         public IActionResult Contact(Person person)
         {
             // hebben we alles goed ingevuld? Dan sturen we de gebruiker door naar de succes pagina
             if (ModelState.IsValid){
+
+                // opslaan
+
 
                 return Redirect("/Succes");
             }
