@@ -137,6 +137,11 @@ footer {
     margin-left: 10px;
 }
 
-.fimtitel{
-    color: white;
+
+.detail {
+    font-size: 21px;
+}
+
+.detail-poster {
+    width: 25%;
 }

@@ -3,8 +3,14 @@
 @{
     ViewData["Title"] = "Film";
 }
+
+<div class="detail-poster">
 <h1>@Model.Naam</h1>
-
-<p>@Model.Beschrijving</p>
-
+</div>
 <img src="@Model.poster" />
+<div class="detail">
+<p>Beschrijving: @Model.beschrijving</p>
+<p>Cast: @Model.Cast</p>
+<p>Duur: @Model.duur</p>
+</div>
+

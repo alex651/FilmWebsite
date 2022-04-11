@@ -50,7 +50,6 @@ namespace FilmWebsite.Controllers
         }
 
         [Route("film/{id}")]
-
         public IActionResult Film(int id)
         {
             var rows = DatabaseConnector.GetRows($"select * from film where id = {id}");
@@ -58,21 +57,28 @@ namespace FilmWebsite.Controllers
             List<Film> films = new List<Film>();
             foreach (var row in rows)
             {
-                Film f = new Film
-                {
-                    // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
-                    Naam = row["naam"].ToString(),
-                    poster = row["poster"].ToString(),
-                    Id = Convert.ToInt32(row["id"].ToString()),
-                    Cast = row["Cast"].ToString()
-                };
+                Film f = RowToFilm(row);
 
                 films.Add(f);
             }
 
             return View(films[0]);
-        }       
+        }
 
+        private static Film RowToFilm(Dictionary<string, object> row)
+        {
+            Film f = new Film
+            {
+                // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
+                Naam = row["naam"].ToString(),
+                poster = row["poster"].ToString(),
+                Id = Convert.ToInt32(row["id"].ToString()),
+                Cast = row["Cast"].ToString(),
+                beschrijving = row["beschrijving"].ToString(),
+                duur = row["duur"].ToString()
+            };
+            return f;
+        }
 
         [Route("actie")]
         public IActionResult Action()
@@ -82,14 +88,7 @@ namespace FilmWebsite.Controllers
             List<Film> films = new List<Film>();
             foreach (var row in rows)
             {
-                Film f = new Film
-                {
-                    // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
-                    Naam = row["naam"].ToString(),
-                    poster = row["poster"].ToString(),
-                    Id = Convert.ToInt32(row["id"].ToString()),
-                    Cast = row["Cast"].ToString()
-                };
+                Film f = RowToFilm(row);
 
                 films.Add(f);
             }
@@ -105,14 +104,7 @@ namespace FilmWebsite.Controllers
             List<Film> films = new List<Film>();
             foreach (var row in rows)
             {
-                Film f = new Film
-                {
-                    // selecteer de kolommen die je wil lezen. In dit geval kiezen we de kolom "naam"
-                    Naam = row["naam"].ToString(),
-                    poster = row["poster"].ToString(),
-                    Id = Convert.ToInt32(row["id"].ToString()),
-                    Cast = row["Cast"].ToString()
-                };
+                Film f = RowToFilm(row);
 
                 films.Add(f);
             }

@@ -10,7 +10,7 @@
 
         public string Cast { get; set; }
 
-        public string Beschrijving { get; set; }
+        public string beschrijving { get; set; }
 
         public string poster { get; set; }
 
