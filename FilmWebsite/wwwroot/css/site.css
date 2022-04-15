@@ -130,7 +130,7 @@ footer {
     height: 50px;
     padding: 15px;
     font-family: Arial;
-    font-size: 23px;
+    font-size: 21px;
 }
 
 .contactform .field-validation-error {
@@ -143,6 +143,7 @@ footer {
     font-size: 21px;
 }
 
-.detail-poster {
-    width: 25%;
+.contactttt{
+    font-size: 21px;
+    padding: 15px;
 }
